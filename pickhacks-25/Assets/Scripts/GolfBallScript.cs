@@ -70,6 +70,41 @@ public class GolfBallScript : MonoBehaviour
         Vector3 direction = mousePosition - transform.position;
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower));
+        
+        Vector3 lineLength = Vector3.ClampMagnitude((direction * putPower), maxPower) - transform.position;
+        float lineLengthC = getLineLength(transform.position, transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower));
+        //UnityEngine.Debug.Log(transform.position);
+        UnityEngine.Debug.Log("start: " + transform.position + " end: " + (transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower)));
+        UnityEngine.Debug.Log("line length: " + lineLengthC);
+        changeLineColor(lineLengthC);
+    }
 
+    private float getLineLength(Vector3 origin, Vector3 point)
+    {
+        float xValue = Mathf.Abs(origin.x) - Mathf.Abs(point.x);
+        float yValue = Mathf.Abs(origin.y) - Mathf.Abs(point.y);
+        UnityEngine.Debug.Log(Mathf.Abs(origin.y) + " - " + Mathf.Abs(point.y));
+        return Mathf.Sqrt(Mathf.Pow(xValue, 2) + Mathf.Pow(yValue, 2));
+    }
+
+    private void changeLineColor(float length)
+    {
+        if (length <= 1.25f)
+        {
+            lr.startColor = UnityEngine.Color.red;
+            lr.endColor = UnityEngine.Color.red;
+        }
+        else if(length > 1.25f && length < 3.0f)
+        {
+            lr.startColor = UnityEngine.Color.blue;
+            lr.endColor = UnityEngine.Color.blue;
+        }
+        else
+        {
+            lr.startColor = UnityEngine.Color.green;
+            lr.endColor = UnityEngine.Color.green;
+        }
+
+        return;
     }
 }
