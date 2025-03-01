@@ -7,6 +7,7 @@ public class GolfBallScript : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LineRenderer lr;
+    [SerializeField] private GameObject confetti;
 
     [SerializeField] public float maxPower = 10f;
     [SerializeField] public float putPower = 5f;
@@ -106,5 +107,31 @@ public class GolfBallScript : MonoBehaviour
         }
 
         return;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Goal")
+        {
+            if (inHole)
+                return;
+            if (rb.velocity.magnitude <= goalSpeed)
+            {
+                inHole = true;
+                rb.velocity = Vector3.zero;
+                gameObject.SetActive(false);
+
+                GameObject winConfetti = Instantiate(confetti, transform.position, Quaternion.identity);
+                Destroy(winConfetti, 3f);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Goal")
+        {
+
+        }
     }
 }
