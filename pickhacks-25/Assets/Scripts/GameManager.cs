@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gamemanager;
 
     [SerializeField] private TextMeshProUGUI strokeText;
+    [SerializeField] private TextMeshProUGUI parText;
     [Space(10)]
     [SerializeField] private GameObject holeCompleteUI;
     [SerializeField] private TextMeshProUGUI strokeCompletedText;
@@ -15,6 +18,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int par;
 
     private int strokes;
+    private string sceneName;
+
+    Dictionary<string, int> levelPars = new Dictionary<string, int>()
+    { //ALL OF THESE PARS ARE SUBJECT TO CHANGE!
+        { "Level01", 3 },
+        { "Level02", 4 },
+        { "Level03", 5 },
+        { "Level21", 5 },
+        { "Level22", 5 },
+        { "Level23", 5 },
+        { "Level31", 5 },
+        { "Level32", 5 },
+        { "Level33", 5 },
+    };
 
     public bool outOfStrokes;
     public bool holeCompleted;
@@ -27,11 +44,22 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateStrokeText();
+        setPar();
+    }
+
+    private void Update()
+    {
+        restartLevel();
     }
 
     private void UpdateStrokeText()
     {
-        strokeText.text = strokes + "";
+        strokeText.text = "Stroke " + strokes;
+    }
+
+    private void UpdateParText()
+    {
+        parText.text = "Par " + par;
     }
 
     public void increaseStrokes()
@@ -46,5 +74,24 @@ public class GameManager : MonoBehaviour
         strokeCompletedText.text = strokes > 1 ? "You putted in " + strokes + " strokes." : "Hole in one!";
 
         holeCompleteUI.SetActive(true);
+    }
+
+    private void setPar()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+
+        par = levelPars[sceneName];
+        UnityEngine.Debug.Log("Par: " + par);
+        UpdateParText();
+    }
+
+    private void restartLevel()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && !holeCompleted)
+        {
+            UnityEngine.Debug.Log("restarting level");
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

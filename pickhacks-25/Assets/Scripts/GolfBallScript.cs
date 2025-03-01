@@ -86,7 +86,7 @@ public class GolfBallScript : MonoBehaviour
     {
         float xValue = Mathf.Abs(origin.x) - Mathf.Abs(point.x);
         float yValue = Mathf.Abs(origin.y) - Mathf.Abs(point.y);
-        UnityEngine.Debug.Log(Mathf.Abs(origin.y) + " - " + Mathf.Abs(point.y));
+        //UnityEngine.Debug.Log(Mathf.Abs(origin.y) + " - " + Mathf.Abs(point.y));
         return Mathf.Sqrt(Mathf.Pow(xValue, 2) + Mathf.Pow(yValue, 2));
     }
 
