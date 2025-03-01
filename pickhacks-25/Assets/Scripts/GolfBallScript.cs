@@ -55,6 +55,8 @@ public class GolfBallScript : MonoBehaviour
 
             if (distance < 0.8f)
                 return;
+
+            GameManager.gamemanager.increaseStrokes();
             
             rb.velocity = Vector3.ClampMagnitude((direction * putPower), maxPower);
         }
@@ -75,8 +77,8 @@ public class GolfBallScript : MonoBehaviour
         Vector3 lineLength = Vector3.ClampMagnitude((direction * putPower), maxPower) - transform.position;
         float lineLengthC = getLineLength(transform.position, transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower));
         //UnityEngine.Debug.Log(transform.position);
-        UnityEngine.Debug.Log("start: " + transform.position + " end: " + (transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower)));
-        UnityEngine.Debug.Log("line length: " + lineLengthC);
+        //UnityEngine.Debug.Log("start: " + transform.position + " end: " + (transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower)));
+        //UnityEngine.Debug.Log("line length: " + lineLengthC);
         changeLineColor(lineLengthC);
     }
 
@@ -123,6 +125,8 @@ public class GolfBallScript : MonoBehaviour
 
                 GameObject winConfetti = Instantiate(confetti, transform.position, Quaternion.identity);
                 Destroy(winConfetti, 3f);
+
+                GameManager.gamemanager.completeHole();
             }
         }
     }
