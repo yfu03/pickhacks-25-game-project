@@ -11,6 +11,10 @@ public class BombScript : MonoBehaviour
     private bool exploded;
     private bool placed;
     private bool placingMode;
+    private bool destroyTimer;
+
+    private float explosionTime;
+    private float explosionLength = 1f;
 
     private Camera Camera;
     private Vector2 mousePosition;
@@ -23,6 +27,12 @@ public class BombScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(destroyTimer)
+        {
+            if (Time.time - explosionTime > explosionLength)
+                Destroy(gameObject);
+        }
+
         if (placingMode)
         {
             followCursor();
@@ -50,7 +60,6 @@ public class BombScript : MonoBehaviour
         
         mousePosition = Camera.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePosition;
-        UnityEngine.Debug.Log(mousePosition);
     }
 
     private void placeBomb()
@@ -71,5 +80,7 @@ public class BombScript : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         
         animator.SetTrigger("explosion_trigger");
+        destroyTimer = true;
+        explosionTime = Time.time;
     }
 }

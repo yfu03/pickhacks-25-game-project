@@ -11,6 +11,7 @@ public class GolfBallScript : MonoBehaviour
 
     [SerializeField] public float maxPower = 10f;
     [SerializeField] public float putPower = 5f;
+    [SerializeField] public float explosionPower = 4f;
     [SerializeField] public float goalSpeed = 6f;
 
     private bool dragClicking;
@@ -133,7 +134,23 @@ public class GolfBallScript : MonoBehaviour
         if(collision.tag == "Explosion")
         {
             UnityEngine.Debug.Log("EXPLOSION TOUCHED BALL");
+            Vector3 explosionPosition = collision.transform.position;
+            UnityEngine.Debug.Log(explosionPosition);
+            UnityEngine.Debug.Log(transform.position);
+
+            explosionVelocity(explosionPosition);
+            collision.enabled = false;
         }
+    }
+
+    private void explosionVelocity(Vector3 explosionPosition)
+    {
+        //UnityEngine.Debug.Log
+        Vector3 direction = transform.position - explosionPosition;
+        float distanceFromExplosionOrigin = getLineLength(transform.position, explosionPosition);
+        UnityEngine.Debug.Log("distance: " + distanceFromExplosionOrigin);
+        if(distanceFromExplosionOrigin < 0.2f) { distanceFromExplosionOrigin = 0.2f; }
+        rb.velocity = Vector3.ClampMagnitude((direction * putPower), maxPower);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

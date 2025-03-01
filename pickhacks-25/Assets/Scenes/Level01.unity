@@ -9799,6 +9799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1189875141795158941, guid: 657b5be0cd3221645840df04cab0969e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3257552481839988754, guid: 657b5be0cd3221645840df04cab0969e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.38
@@ -9842,6 +9846,10 @@ PrefabInstance:
     - target: {fileID: 3885208159929739754, guid: 657b5be0cd3221645840df04cab0969e, type: 3}
       propertyPath: m_Name
       value: Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961997791371724146, guid: 657b5be0cd3221645840df04cab0969e, type: 3}
+      propertyPath: m_TagString
+      value: Explosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
