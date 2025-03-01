@@ -1,0 +1,75 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GolfBallScript : MonoBehaviour
+{
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private LineRenderer lr;
+
+    [SerializeField] public float maxPower = 10f;
+    [SerializeField] public float putPower = 5f;
+    [SerializeField] public float goalSpeed = 6f;
+
+    private bool dragClicking;
+    private bool inHole;
+
+    private Camera Camera;
+    private Vector3 mousePosition;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isMoving())
+        {
+            lr.positionCount = 0;
+            return;
+        }
+        mousePosition = Camera.ScreenToWorldPoint(Input.mousePosition);
+        float distanceBetween = Vector2.Distance(transform.position, mousePosition);
+        Vector3 direction = transform.position - mousePosition;
+
+        if (distanceBetween <= 0.3f && Input.GetMouseButtonDown(0))
+        {
+            dragClicking = true;
+            lr.positionCount = 2;
+        }
+
+        if (dragClicking && Input.GetMouseButton(0))
+        {
+            drawLine(mousePosition);
+        }
+
+        if (dragClicking && Input.GetMouseButtonUp(0))
+        {
+            float distance = Vector3.Distance(transform.position, mousePosition);
+            dragClicking = false;
+
+            if (distance < 0.8f)
+                return;
+            
+            rb.velocity = Vector3.ClampMagnitude((direction * putPower), maxPower);
+        }
+
+    }
+
+    private bool isMoving()
+    {
+        return rb.velocity.magnitude > 0.2f;
+    }
+
+    private void drawLine(Vector3 mousePosition)
+    {
+        Vector3 direction = mousePosition - transform.position;
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower));
+
+    }
+}

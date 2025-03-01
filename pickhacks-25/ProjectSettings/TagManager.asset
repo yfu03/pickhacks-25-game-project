@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GolfBall
+    uniqueID: 476624321
+    locked: 0
