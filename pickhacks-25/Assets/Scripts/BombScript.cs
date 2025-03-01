@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BombScript : MonoBehaviour
+{
+    [SerializeField] private CircleCollider2D circleCollider;
+
+    private bool exploded;
+    private bool placed;
+    private bool placingMode;
+
+    private Camera Camera;
+    private Vector2 mousePosition;
+    void Start()
+    {
+        Camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (placingMode)
+        {
+            followCursor();
+        }
+
+        if (!placed && !placingMode && Input.GetKeyDown(KeyCode.Q))
+        {
+            placingMode = true;
+            circleCollider.enabled = false;
+        }
+
+        if (placingMode && Input.GetMouseButton(0))
+        {
+            placeBomb();
+        }
+
+        if(placed && Input.GetKeyDown(KeyCode.Q))
+        {
+            UnityEngine.Debug.Log("EXPLODE BOMB!!!");
+        }
+    }
+
+    private void followCursor()
+    {
+        
+        mousePosition = Camera.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mousePosition;
+        UnityEngine.Debug.Log(mousePosition);
+    }
+
+    private void placeBomb()
+    {
+        placed = true;
+        placingMode = false;
+
+        mousePosition = Camera.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mousePosition;
+
+        circleCollider.enabled = true;
+
+        UnityEngine.Debug.Log("bomb placed");
+    }
+}
