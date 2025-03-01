@@ -14,10 +14,12 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private GameObject holeCompleteUI;
     [SerializeField] private TextMeshProUGUI strokeCompletedText;
+    [SerializeField] private TextMeshProUGUI bombText;
     [Space(10)]
     [SerializeField] private int par;
 
     private int strokes;
+    private int numBomb = 1;
     private string sceneName;
 
     Dictionary<string, int> levelPars = new Dictionary<string, int>()
@@ -57,6 +59,11 @@ public class GameManager : MonoBehaviour
         strokeText.text = "Stroke " + strokes;
     }
 
+    public void UpdateBombText()
+    {
+        bombText.text = "X " + numBomb;
+    }
+
     private void UpdateParText()
     {
         parText.text = "Par " + par;
@@ -66,6 +73,12 @@ public class GameManager : MonoBehaviour
     {
         strokes++;
         UpdateStrokeText();
+    }
+
+    public void useBomb()
+    {
+        numBomb--;
+        UpdateBombText();
     }
 
     public void completeHole()

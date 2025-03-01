@@ -71,6 +71,7 @@ public class BombScript : MonoBehaviour
         transform.position = mousePosition;
 
         circleCollider.enabled = true;
+        GameManager.gamemanager.useBomb();
     }
 
     private void explodeBomb()
