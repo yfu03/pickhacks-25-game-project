@@ -5,6 +5,8 @@ using UnityEngine;
 public class BombScript : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D circleCollider;
+    [SerializeField] private GameObject explosionObject;
+    [SerializeField] private Animator animator;
 
     private bool exploded;
     private bool placed;
@@ -15,6 +17,7 @@ public class BombScript : MonoBehaviour
     void Start()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        explosionObject = GameObject.Find("Explosion");
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class BombScript : MonoBehaviour
         if(placed && Input.GetKeyDown(KeyCode.Q))
         {
             UnityEngine.Debug.Log("EXPLODE BOMB!!!");
+            explodeBomb();
         }
     }
 
@@ -61,5 +65,14 @@ public class BombScript : MonoBehaviour
         circleCollider.enabled = true;
 
         UnityEngine.Debug.Log("bomb placed");
+    }
+
+    private void explodeBomb()
+    {
+        explosionObject.GetComponent<SpriteRenderer>().enabled = true;
+        explosionObject.GetComponent<CircleCollider2D>().enabled = true;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        
+        animator.SetTrigger("explosion_trigger");
     }
 }
