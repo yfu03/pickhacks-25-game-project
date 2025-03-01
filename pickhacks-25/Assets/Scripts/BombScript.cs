@@ -41,7 +41,6 @@ public class BombScript : MonoBehaviour
 
         if(placed && Input.GetKeyDown(KeyCode.Q))
         {
-            UnityEngine.Debug.Log("EXPLODE BOMB!!!");
             explodeBomb();
         }
     }
@@ -63,8 +62,6 @@ public class BombScript : MonoBehaviour
         transform.position = mousePosition;
 
         circleCollider.enabled = true;
-
-        UnityEngine.Debug.Log("bomb placed");
     }
 
     private void explodeBomb()

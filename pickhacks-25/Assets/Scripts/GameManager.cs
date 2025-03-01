@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void completeHole()
     {
+        UnityEngine.Debug.Log("hi");
         holeCompleted = true;
         strokeCompletedText.text = strokes > 1 ? "You putted in " + strokes + " strokes." : "Hole in one!";
 

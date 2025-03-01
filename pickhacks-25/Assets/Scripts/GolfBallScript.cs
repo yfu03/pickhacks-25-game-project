@@ -129,6 +129,11 @@ public class GolfBallScript : MonoBehaviour
                 GameManager.gamemanager.completeHole();
             }
         }
+
+        if(collision.tag == "Explosion")
+        {
+            UnityEngine.Debug.Log("EXPLOSION TOUCHED BALL");
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
