@@ -43,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bomb
+    uniqueID: 3075726891
+    locked: 0
+  - name: Hole
+    uniqueID: 421157137
+    locked: 0
   - name: GolfBall
     uniqueID: 476624321
     locked: 0
