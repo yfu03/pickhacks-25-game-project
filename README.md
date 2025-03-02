@@ -10,6 +10,10 @@ It was made over a 36 hour period as a submission for Missouri University of Sci
 - Press Q again after the bomb has been placed to make it explode! You can do this before or during a putt.
 - Press R to restart the current level.
 
+### Running the Game
+To play the game, you want download the source code and go to **pickhacks-25-game-project/pickhacks-25/Bounds/** (yes i misspelled "Builds" as "Bounds"). 
+After that, just click on the .exe file to run the game.
+
 ### Contributors
 [Yannis Fu](https://github.com/yfu03) - Level design, level creation, programming.
 
