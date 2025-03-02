@@ -58,7 +58,7 @@ public class GolfBallScript : MonoBehaviour
                 return;
 
             GameManager.gamemanager.increaseStrokes();
-            
+
             rb.velocity = Vector3.ClampMagnitude((direction * putPower), maxPower);
         }
 
@@ -74,7 +74,7 @@ public class GolfBallScript : MonoBehaviour
         Vector3 direction = mousePosition - transform.position;
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower));
-        
+
         Vector3 lineLength = Vector3.ClampMagnitude((direction * putPower), maxPower) - transform.position;
         float lineLengthC = getLineLength(transform.position, transform.position + Vector3.ClampMagnitude((direction * putPower), maxPower));
         //UnityEngine.Debug.Log(transform.position);
@@ -98,7 +98,7 @@ public class GolfBallScript : MonoBehaviour
             lr.startColor = UnityEngine.Color.red;
             lr.endColor = UnityEngine.Color.red;
         }
-        else if(length > 1.25f && length < 3.0f)
+        else if (length > 1.25f && length < 3.0f)
         {
             lr.startColor = UnityEngine.Color.blue;
             lr.endColor = UnityEngine.Color.blue;
@@ -114,7 +114,7 @@ public class GolfBallScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Goal")
+        if (collision.tag == "Goal")
         {
             if (inHole)
                 return;
@@ -131,7 +131,7 @@ public class GolfBallScript : MonoBehaviour
             }
         }
 
-        if(collision.tag == "Explosion")
+        if (collision.tag == "Explosion")
         {
             UnityEngine.Debug.Log("EXPLOSION TOUCHED BALL");
             Vector3 explosionPosition = collision.transform.position;
@@ -141,6 +141,13 @@ public class GolfBallScript : MonoBehaviour
             explosionVelocity(explosionPosition);
             collision.enabled = false;
         }
+
+        if (collision.tag == "Spring")
+        {
+            float angleRadians = collision.transform.rotation.eulerAngles[2] * Mathf.PI / 180f;
+            Vector2 bounceForce = new Vector2(maxPower * Mathf.Sin(-angleRadians), maxPower * Mathf.Cos(-angleRadians));
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity + bounceForce, maxPower);
+        }
     }
 
     private void explosionVelocity(Vector3 explosionPosition)
@@ -149,7 +156,7 @@ public class GolfBallScript : MonoBehaviour
         Vector3 direction = transform.position - explosionPosition;
         float distanceFromExplosionOrigin = getLineLength(transform.position, explosionPosition);
         UnityEngine.Debug.Log("distance: " + distanceFromExplosionOrigin);
-        if(distanceFromExplosionOrigin < 0.2f) { distanceFromExplosionOrigin = 0.2f; }
+        if (distanceFromExplosionOrigin < 0.2f) { distanceFromExplosionOrigin = 0.2f; }
         rb.velocity = Vector3.ClampMagnitude((direction * putPower), maxPower);
     }
 
