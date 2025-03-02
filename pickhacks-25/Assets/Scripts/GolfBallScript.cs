@@ -106,7 +106,7 @@ public class GolfBallScript : MonoBehaviour
             lr.endColor = UnityEngine.Color.red;
         }
 
-        else if(length > 2.5f && length < 6.0f)
+        else if (length > 2.5f && length < 6.0f)
         {
             lr.startColor = UnityEngine.Color.blue;
             lr.endColor = UnityEngine.Color.blue;
@@ -159,7 +159,6 @@ public class GolfBallScript : MonoBehaviour
             rb.velocity = Vector2.ClampMagnitude(rb.velocity + bounceForce, maxPower);
             GameManager.gamemanager.playSpringSound();
         }
-
     }
 
     private void explosionVelocity(Vector3 explosionPosition)
@@ -179,12 +178,12 @@ public class GolfBallScript : MonoBehaviour
             rb.drag = 6.5f;
         }
 
-        if(collision.tag == "Pad")
+        if (collision.tag == "Pad")
         {
             rb.drag = 0.5f;
             float angleRadians = collision.transform.rotation.eulerAngles[2] * Mathf.PI / 180f;
-            Vector2 accForce = new Vector2((rb.velocity.x*1.25f) * Mathf.Sin(-angleRadians), (rb.velocity.y/3f) * Mathf.Cos(-angleRadians));
-            rb.velocity = Vector2.ClampMagnitude(rb.velocity + accForce, (maxPower/2f));
+            Vector2 accForce = new Vector2((0.2f) * Mathf.Sin(-angleRadians), (0.2f) * Mathf.Cos(-angleRadians));
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity + accForce, (maxPower / 2f));
         }
     }
 
@@ -204,7 +203,7 @@ public class GolfBallScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag != "Spring")
+        if (collision.collider.tag != "Spring")
             GameManager.gamemanager.playBounceSound();
 
     }
