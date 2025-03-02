@@ -10,6 +10,7 @@ TagManager:
   - Sand
   - Distructable
   - Wall
+  - Pad
   layers:
   - Default
   - TransparentFX

@@ -34,7 +34,7 @@ public class AmbienceManager : MonoBehaviour
     public void StopMusic()
     {
         string sceneName = getSceneName();
-        UnityEngine.Debug.Log(sceneName.Length);
+        //UnityEngine.Debug.Log(sceneName.Length);
         if (sceneName.Length == 7)
             audsrc.Stop();
     }

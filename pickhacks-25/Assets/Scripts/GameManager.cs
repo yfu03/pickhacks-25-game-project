@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private int par;
 
-    public AudioClip bgm, ambience, putt, hole, explosion, boing;
+    public AudioClip bgm, ambience, putt, hole, explosion, boing, spring;
 
     private int strokes;
     private int numBomb = 1;
@@ -114,6 +114,13 @@ public class GameManager : MonoBehaviour
     public void playBounceSound()
     {
         audsrc.clip = boing;
+        audsrc.Play();
+    }
+
+    public void playSpringSound()
+    {
+        UnityEngine.Debug.Log("HI ");
+        audsrc.clip = spring;
         audsrc.Play();
     }
 

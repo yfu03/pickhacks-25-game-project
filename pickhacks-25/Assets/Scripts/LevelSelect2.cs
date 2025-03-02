@@ -7,7 +7,7 @@ public class LevelSelect2 : MonoBehaviour
 {
     public void W11Button()
     {
-        //SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("Level21");
     }
 
     public void W12Button()

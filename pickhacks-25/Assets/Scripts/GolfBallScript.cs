@@ -153,9 +153,11 @@ public class GolfBallScript : MonoBehaviour
 
         if (collision.tag == "Spring")
         {
+            UnityEngine.Debug.Log("spring");
             float angleRadians = collision.transform.rotation.eulerAngles[2] * Mathf.PI / 180f;
             Vector2 bounceForce = new Vector2(maxPower * Mathf.Sin(-angleRadians), maxPower * Mathf.Cos(-angleRadians));
             rb.velocity = Vector2.ClampMagnitude(rb.velocity + bounceForce, maxPower);
+            GameManager.gamemanager.playSpringSound();
         }
 
     }
@@ -174,8 +176,15 @@ public class GolfBallScript : MonoBehaviour
     {
         if (collision.tag == "Sand")
         {
-            //UnityEngine.Debug.Log("stuck in sand");
             rb.drag = 6.5f;
+        }
+
+        if(collision.tag == "Pad")
+        {
+            rb.drag = 0.5f;
+            float angleRadians = collision.transform.rotation.eulerAngles[2] * Mathf.PI / 180f;
+            Vector2 accForce = new Vector2((rb.velocity.x*1.25f) * Mathf.Sin(-angleRadians), (rb.velocity.y/3f) * Mathf.Cos(-angleRadians));
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity + accForce, (maxPower/2f));
         }
     }
 
@@ -186,11 +195,17 @@ public class GolfBallScript : MonoBehaviour
             //UnityEngine.Debug.Log("leaving sand!!!!!!!");
             rb.drag = defaultDrag;
         }
+
+        if (collision.tag == "Pad")
+        {
+            rb.drag = defaultDrag;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameManager.gamemanager.playBounceSound();
+        if(collision.collider.tag != "Spring")
+            GameManager.gamemanager.playBounceSound();
 
     }
 }
