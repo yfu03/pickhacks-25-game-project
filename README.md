@@ -21,4 +21,17 @@ It was made over a 36 hour period as a submission for Missouri University of Sci
 
 [Iso!](https://open.spotify.com/artist/2hVOhzRSsYu7qAvdyL3g6u?si=ZMkTVNqeTo2hJC42WbykOw) gave us permission to use their music.
 
-[Several sources](https://docs.google.com/document/d/1rjVh_UC36vSpgp3z3EikmHOWt90su5P9vK5WFwrSOpI) supplied the sound effects.
+**Several sources** supplied the sound effects Here is a list of all sound effects and art we used from others.
+- Spring: https://www.youtube.com/watch?v=d7vfbyFl5kc 
+- Boing: by chilljeremy https://pixabay.com/sound-effects/boing-101318/ 
+- Explosion: by JuveriSetila https://pixabay.com/sound-effects/medium-explosion-40472/ 
+- Bird ambience: by AudioPapkin https://pixabay.com/sound-effects/forest-ambience-296528/ 
+- Putt:  by pfranzen https://pixabay.com/sound-effects/minigolf-putt-right-into-the-hole-96699/ 
+- Hole: by pfranzen https://pixabay.com/sound-effects/minigolf-putt-right-into-the-hole-96699/ 
+
+- Green checkerboard pattern sprite:  from “Muddy Wolf” on Youtube (link in description) https://youtu.be/iatLi60Rbd8?si=z1g_3R-HLTT-kdDf 
+
+- Ranking images: steam emotes from steam
+
+Any art not explicitly sourced here was made by our team.
+
