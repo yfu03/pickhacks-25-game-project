@@ -2374,7 +2374,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 48
     m_FontStyle: 1
     m_BestFit: 0
@@ -2846,6 +2846,7 @@ GameObject:
   - component: {fileID: 1110894446}
   - component: {fileID: 1110894445}
   - component: {fileID: 1110894444}
+  - component: {fileID: 1110894447}
   m_Layer: 5
   m_Name: Level23
   m_TagString: Untagged
@@ -2916,7 +2917,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1110894445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1110894447}
+        m_TargetAssemblyTypeName: LevelSelect2, Assembly-CSharp
+        m_MethodName: W13Button
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1110894445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2955,6 +2968,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110894442}
   m_CullTransparentMesh: 1
+--- !u!114 &1110894447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110894442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0288d314a0ef8a47a0e51c4d7fe2c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1134437291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,7 +3545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 3d26b5c688186e24daf0b2ccd6a8047e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
