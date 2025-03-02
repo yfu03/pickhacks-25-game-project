@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         { "Level03", 4 },
         { "Level21", 3 },
         { "Level22", 4 },
-        { "Level23", 5 },
+        { "Level23", 3 },
         { "Level31", 5 },
         { "Level32", 5 },
         { "Level33", 5 },
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     private void UpdateStrokeText()
     {
         strokeText.text = "Stroke " + strokes;
-        
+
     }
 
     public void playPuttSound()

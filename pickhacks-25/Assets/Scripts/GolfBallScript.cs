@@ -185,7 +185,7 @@ public class GolfBallScript : MonoBehaviour
         {
             rb.drag = 0.5f;
             float angleRadians = collision.transform.rotation.eulerAngles[2] * Mathf.PI / 180f;
-            Vector2 accForce = new Vector2((0.2f) * Mathf.Sin(-angleRadians), (0.2f) * Mathf.Cos(-angleRadians));
+            Vector2 accForce = new Vector2((0.4f) * Mathf.Sin(-angleRadians), (0.4f) * Mathf.Cos(-angleRadians));
             rb.velocity = Vector2.ClampMagnitude(rb.velocity + accForce, (maxPower / 2f));
         }
     }
