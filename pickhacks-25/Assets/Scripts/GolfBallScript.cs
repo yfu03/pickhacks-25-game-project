@@ -69,6 +69,9 @@ public class GolfBallScript : MonoBehaviour
             GameManager.gamemanager.playPuttSound();
         }
 
+        //Rotates the ball to face the direction it is moving
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, rb.velocity);
+        transform.rotation = toRotation;
     }
 
     private bool isMoving()
