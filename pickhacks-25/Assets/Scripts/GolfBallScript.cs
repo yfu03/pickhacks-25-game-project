@@ -17,6 +17,8 @@ public class GolfBallScript : MonoBehaviour
     private bool dragClicking;
     private bool inHole;
 
+    private float defaultDrag = 1.2f;
+
     private Camera Camera;
     private Vector3 mousePosition;
 
@@ -29,6 +31,11 @@ public class GolfBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (rb.IsTouching(anotherCollider))
+        //{
+        //    // Do something;
+        //}
+
         if (isMoving())
         {
             lr.positionCount = 0;
@@ -98,11 +105,8 @@ public class GolfBallScript : MonoBehaviour
             lr.startColor = UnityEngine.Color.red;
             lr.endColor = UnityEngine.Color.red;
         }
-<<<<<<< HEAD
-        else if (length > 1.25f && length < 3.0f)
-=======
+
         else if(length > 2.5f && length < 6.0f)
->>>>>>> c89ac43a7976abd20f14d0e7852c0ad067bbcfc0
         {
             lr.startColor = UnityEngine.Color.blue;
             lr.endColor = UnityEngine.Color.blue;
@@ -137,7 +141,7 @@ public class GolfBallScript : MonoBehaviour
 
         if (collision.tag == "Explosion")
         {
-            UnityEngine.Debug.Log("EXPLOSION TOUCHED BALL");
+            //UnityEngine.Debug.Log("EXPLOSION TOUCHED BALL");
             Vector3 explosionPosition = collision.transform.position;
             UnityEngine.Debug.Log(explosionPosition);
             UnityEngine.Debug.Log(transform.position);
@@ -152,6 +156,7 @@ public class GolfBallScript : MonoBehaviour
             Vector2 bounceForce = new Vector2(maxPower * Mathf.Sin(-angleRadians), maxPower * Mathf.Cos(-angleRadians));
             rb.velocity = Vector2.ClampMagnitude(rb.velocity + bounceForce, maxPower);
         }
+
     }
 
     private void explosionVelocity(Vector3 explosionPosition)
@@ -166,9 +171,19 @@ public class GolfBallScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Goal")
+        if (collision.tag == "Sand")
         {
+            //UnityEngine.Debug.Log("stuck in sand");
+            rb.drag = 6.5f;
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Sand")
+        {
+            //UnityEngine.Debug.Log("leaving sand!!!!!!!");
+            rb.drag = defaultDrag;
         }
     }
 }

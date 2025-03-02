@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
 
     Dictionary<string, int> levelPars = new Dictionary<string, int>()
     { //ALL OF THESE PARS ARE SUBJECT TO CHANGE!
-        { "Level01", 3 },
-        { "Level02", 4 },
+        { "Level01", 2 },
+        { "Level02", 3 },
         { "Level03", 5 },
-        { "Level21", 5 },
+        { "Level21", 2 },
         { "Level22", 5 },
         { "Level23", 5 },
         { "Level31", 5 },
@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour
 
     public void completeHole()
     {
-        UnityEngine.Debug.Log("hi");
         holeCompleted = true;
         strokeCompletedText.text = strokes > 1 ? "You putted in " + strokes + " strokes." : "Hole in one!";
 
@@ -96,7 +95,7 @@ public class GameManager : MonoBehaviour
         sceneName = scene.name;
 
         par = levelPars[sceneName];
-        UnityEngine.Debug.Log("Par: " + par);
+        //UnityEngine.Debug.Log("Par: " + par);
         UpdateParText();
     }
 
