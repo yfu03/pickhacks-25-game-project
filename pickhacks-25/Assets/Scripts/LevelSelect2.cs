@@ -23,7 +23,7 @@ public class LevelSelect2 : MonoBehaviour
 
     public void backButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("TitleScreen");
     }
 
     public void nextButton()

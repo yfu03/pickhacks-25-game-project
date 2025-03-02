@@ -81,6 +81,7 @@ public class BombScript : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         
         animator.SetTrigger("explosion_trigger");
+        GameManager.gamemanager.playBombSound();
         destroyTimer = true;
         explosionTime = Time.time;
     }

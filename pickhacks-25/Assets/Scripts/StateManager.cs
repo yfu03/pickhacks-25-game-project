@@ -13,4 +13,14 @@ public class StateManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void exitMain1()
+    {
+        SceneManager.LoadScene("LevelSelect1");
+    }
+
+    public void exitMain2()
+    {
+        SceneManager.LoadScene("LevelSelect2");
+    }
 }

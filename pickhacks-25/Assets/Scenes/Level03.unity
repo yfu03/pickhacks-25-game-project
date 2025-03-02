@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3840533493734206044, guid: 2655b5daee084a04bbd8942ce07774ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level21
+      objectReference: {fileID: 0}
     - target: {fileID: 6920480812017068660, guid: 2655b5daee084a04bbd8942ce07774ea, type: 3}
       propertyPath: m_Name
       value: UI
@@ -217,7 +221,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6920480812017068660, guid: 2655b5daee084a04bbd8942ce07774ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302673509}
+    - targetCorrespondingSourceObject: {fileID: 6920480812017068660, guid: 2655b5daee084a04bbd8942ce07774ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302673508}
   m_SourcePrefab: {fileID: 100100000, guid: 2655b5daee084a04bbd8942ce07774ea, type: 3}
 --- !u!114 &27541343 stripped
 MonoBehaviour:
@@ -16383,6 +16393,46 @@ Transform:
   - {fileID: 493194615}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1302673503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6920480812017068660, guid: 2655b5daee084a04bbd8942ce07774ea, type: 3}
+  m_PrefabInstance: {fileID: 27541342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1302673508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302673503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1302673509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302673503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1001 &1520034587
 PrefabInstance:
   m_ObjectHideFlags: 0

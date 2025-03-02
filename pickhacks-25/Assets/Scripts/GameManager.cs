@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     };
 
     public bool outOfStrokes;
-    public bool holeCompleted;
+    private bool holeCompleted = false;
 
     private void Awake()
     {
@@ -60,6 +60,13 @@ public class GameManager : MonoBehaviour
     private void UpdateStrokeText()
     {
         strokeText.text = "Stroke " + strokes;
+        
+    }
+
+    public void playPuttSound()
+    {
+        audsrc.clip = putt;
+        audsrc.Play();
     }
 
     public void UpdateBombText()
@@ -90,6 +97,24 @@ public class GameManager : MonoBehaviour
         strokeCompletedText.text = strokes > 1 ? "You putted in " + strokes + " strokes." : "Hole in one!";
 
         holeCompleteUI.SetActive(true);
+    }
+
+    public void playHoleSound()
+    {
+        audsrc.clip = hole;
+        audsrc.Play();
+    }
+
+    public void playBombSound()
+    {
+        audsrc.clip = explosion;
+        audsrc.Play();
+    }
+
+    public void playBounceSound()
+    {
+        audsrc.clip = boing;
+        audsrc.Play();
     }
 
     private void setPar()

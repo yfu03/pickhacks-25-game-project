@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 476624321
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 246a65735e75036488833e9532392c51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_LinearDrag: 1.2
   m_AngularDrag: 0.5
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8cddd9c80e1104342aaad5328a33885a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -190,7 +190,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 476624321
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -278,6 +278,7 @@ MonoBehaviour:
   rb: {fileID: 68279575703773750}
   lr: {fileID: 857048160661518042}
   confetti: {fileID: 6116544585051907607, guid: 82071cc0ec88e9244b05868320540f6a, type: 3}
+  wall: {fileID: 0}
   maxPower: 35
   putPower: 20
   explosionPower: 2

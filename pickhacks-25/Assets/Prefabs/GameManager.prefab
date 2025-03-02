@@ -48,19 +48,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strokeText: {fileID: 0}
   parText: {fileID: 0}
-  audsrc: {fileID: 0}
+  audsrc: {fileID: -2277852937416442053}
   holeCompleteUI: {fileID: 0}
   strokeCompletedText: {fileID: 0}
   bombText: {fileID: 0}
   par: 3
   bgm: {fileID: 8300000, guid: 9b63185adb04dea45b9f6d89e822ac81, type: 3}
   ambience: {fileID: 8300000, guid: 650897bf22617254593dac1071736df3, type: 3}
-  putt: {fileID: 8300000, guid: 0469efb551b277a49b0b5bc27232cde3, type: 3}
-  hole: {fileID: 8300000, guid: 7fa13e66d3e0abb4fbfc7351e61c0491, type: 3}
-  explosion: {fileID: 8300000, guid: 77ed7d9a6698fa24b93f83be1e438257, type: 3}
-  boing: {fileID: 8300000, guid: e7592ae502f795b43b76533b32a7b9e5, type: 3}
+  putt: {fileID: 8300000, guid: 0ebe97a40782ca542b842d2b38d9064f, type: 3}
+  hole: {fileID: 8300000, guid: 2e5603af1ec30d14fa255ca26a07767b, type: 3}
+  explosion: {fileID: 8300000, guid: 3ff5be5580069e94ba0516c4bf372737, type: 3}
+  boing: {fileID: 8300000, guid: e34516230c35ef240a6e65c1234f3f74, type: 3}
   outOfStrokes: 0
-  holeCompleted: 1
 --- !u!114 &2160786074104534086
 MonoBehaviour:
   m_ObjectHideFlags: 0

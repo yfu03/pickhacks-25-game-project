@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GolfBallScript : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class GolfBallScript : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LineRenderer lr;
     [SerializeField] private GameObject confetti;
+    [SerializeField] private TilemapCollider2D wall;
 
     [SerializeField] public float maxPower = 15f;
     [SerializeField] public float putPower = 7f;
     [SerializeField] public float explosionPower = 4f;
     [SerializeField] public float goalSpeed = 6f;
+
 
     private bool dragClicking;
     private bool inHole;
@@ -31,10 +34,6 @@ public class GolfBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (rb.IsTouching(anotherCollider))
-        //{
-        //    // Do something;
-        //}
 
         if (isMoving())
         {
@@ -67,6 +66,7 @@ public class GolfBallScript : MonoBehaviour
             GameManager.gamemanager.increaseStrokes();
 
             rb.velocity = Vector3.ClampMagnitude((direction * putPower), maxPower);
+            GameManager.gamemanager.playPuttSound();
         }
 
     }
@@ -136,6 +136,7 @@ public class GolfBallScript : MonoBehaviour
                 Destroy(winConfetti, 3f);
 
                 GameManager.gamemanager.completeHole();
+                GameManager.gamemanager.playHoleSound();
             }
         }
 
@@ -185,5 +186,11 @@ public class GolfBallScript : MonoBehaviour
             //UnityEngine.Debug.Log("leaving sand!!!!!!!");
             rb.drag = defaultDrag;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameManager.gamemanager.playBounceSound();
+
     }
 }
