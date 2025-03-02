@@ -9,8 +9,8 @@ public class GolfBallScript : MonoBehaviour
     [SerializeField] private LineRenderer lr;
     [SerializeField] private GameObject confetti;
 
-    [SerializeField] public float maxPower = 10f;
-    [SerializeField] public float putPower = 5f;
+    [SerializeField] public float maxPower = 15f;
+    [SerializeField] public float putPower = 7f;
     [SerializeField] public float explosionPower = 4f;
     [SerializeField] public float goalSpeed = 6f;
 
@@ -93,12 +93,16 @@ public class GolfBallScript : MonoBehaviour
 
     private void changeLineColor(float length)
     {
-        if (length <= 1.25f)
+        if (length <= 2.5f)
         {
             lr.startColor = UnityEngine.Color.red;
             lr.endColor = UnityEngine.Color.red;
         }
+<<<<<<< HEAD
         else if (length > 1.25f && length < 3.0f)
+=======
+        else if(length > 2.5f && length < 6.0f)
+>>>>>>> c89ac43a7976abd20f14d0e7852c0ad067bbcfc0
         {
             lr.startColor = UnityEngine.Color.blue;
             lr.endColor = UnityEngine.Color.blue;
