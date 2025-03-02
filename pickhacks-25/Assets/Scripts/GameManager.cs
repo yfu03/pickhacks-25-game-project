@@ -11,12 +11,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI strokeText;
     [SerializeField] private TextMeshProUGUI parText;
+    [SerializeField] private AudioSource audsrc;
     [Space(10)]
     [SerializeField] private GameObject holeCompleteUI;
     [SerializeField] private TextMeshProUGUI strokeCompletedText;
     [SerializeField] private TextMeshProUGUI bombText;
     [Space(10)]
     [SerializeField] private int par;
+
+    public AudioClip bgm, ambience, putt, hole, explosion, boing;
 
     private int strokes;
     private int numBomb = 1;
