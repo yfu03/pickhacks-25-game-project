@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -16,10 +17,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject holeCompleteUI;
     [SerializeField] private TextMeshProUGUI strokeCompletedText;
     [SerializeField] private TextMeshProUGUI bombText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private RawImage scoreSprite;
     [Space(10)]
     [SerializeField] private int par;
 
     public AudioClip bgm, ambience, putt, hole, explosion, boing, spring;
+    public List<Texture> rankSprites;
 
     private int strokes;
     private int numBomb = 1;
@@ -94,9 +98,44 @@ public class GameManager : MonoBehaviour
     public void completeHole()
     {
         holeCompleted = true;
-        strokeCompletedText.text = strokes > 1 ? "You putted in " + strokes + " strokes." : "Hole in one!";
-
+        strokeCompletedText.text = "You putted in " + strokes + " strokes.";
+        scoreText.text = computeScore();
         holeCompleteUI.SetActive(true);
+    }
+
+    private string computeScore()
+    {
+
+        if (strokes == 1)
+        {
+            scoreSprite.texture = rankSprites[0];
+            return "Hole in one!";
+        }
+        int score = strokes - par;
+        switch (score)
+        {
+            case -2:
+                scoreSprite.texture = rankSprites[0];
+                return "Eagle";
+            case -1:
+                scoreSprite.texture = rankSprites[0];
+                return "Birdie";
+            case 0:
+                scoreSprite.texture = rankSprites[0];
+                return "Par";
+            case 1:
+                scoreSprite.texture = rankSprites[1];
+                return "Bogey";
+            case 2:
+                scoreSprite.texture = rankSprites[2];
+                return "Double Bogey";
+            case 3:
+                scoreSprite.texture = rankSprites[3];
+                return "Triple Bogey";
+            default:
+                scoreSprite.texture = rankSprites[4];
+                return score + " Bogey";
+        }
     }
 
     public void playHoleSound()
