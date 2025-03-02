@@ -4,6 +4,12 @@ Minibomb is a top-down minigolf game with a unique spin! You're able to place a 
 
 It was made over a 36 hour period as a submission for Missouri University of Science and Technology's PickHacks 2025 Hackathon.
 
+### Controls
+Click and drag on the golf ball to aim and control the power of your putt!
+Press Q to go into bomb placing mode. Left click to place the bomb at your mouse cursor.
+Press Q again after the bomb has been placed to make it explode! You can do this before or during a putt.
+Press R to restart the current level.
+
 ### Contributors
 [Yannis Fu](https://github.com/yfu03) - Level design, level creation, programming.
 
