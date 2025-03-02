@@ -12,7 +12,6 @@ public class AmbienceManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
         ambmanager = this;
     }
 

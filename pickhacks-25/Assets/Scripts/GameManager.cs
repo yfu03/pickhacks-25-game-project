@@ -32,10 +32,10 @@ public class GameManager : MonoBehaviour
     Dictionary<string, int> levelPars = new Dictionary<string, int>()
     { //ALL OF THESE PARS ARE SUBJECT TO CHANGE!
         { "Level01", 2 },
-        { "Level02", 3 },
-        { "Level03", 5 },
-        { "Level21", 2 },
-        { "Level22", 5 },
+        { "Level02", 4 },
+        { "Level03", 4 },
+        { "Level21", 3 },
+        { "Level22", 4 },
         { "Level23", 5 },
         { "Level31", 5 },
         { "Level32", 5 },

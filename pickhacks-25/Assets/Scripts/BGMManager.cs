@@ -12,7 +12,6 @@ public class BGMManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
         bgmmanager = this;
     }
 

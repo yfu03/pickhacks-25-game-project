@@ -52,6 +52,8 @@ MonoBehaviour:
   holeCompleteUI: {fileID: 0}
   strokeCompletedText: {fileID: 0}
   bombText: {fileID: 0}
+  scoreText: {fileID: 0}
+  scoreSprite: {fileID: 0}
   par: 3
   bgm: {fileID: 8300000, guid: 9b63185adb04dea45b9f6d89e822ac81, type: 3}
   ambience: {fileID: 8300000, guid: 650897bf22617254593dac1071736df3, type: 3}
@@ -60,6 +62,12 @@ MonoBehaviour:
   explosion: {fileID: 8300000, guid: 3ff5be5580069e94ba0516c4bf372737, type: 3}
   boing: {fileID: 8300000, guid: e34516230c35ef240a6e65c1234f3f74, type: 3}
   spring: {fileID: 8300000, guid: 90ce59087bc5fbf4ea4ab153b0af6f8d, type: 3}
+  rankSprites:
+  - {fileID: 2800000, guid: 4240205a3dd72704da80eb1d0af3f8c8, type: 3}
+  - {fileID: 2800000, guid: 97d7fd29dde94894291f9f9987c28b3f, type: 3}
+  - {fileID: 2800000, guid: 25008af1fba0e2f468b7e53e7d7c6f2c, type: 3}
+  - {fileID: 2800000, guid: 4680d22281630504faa4ac287fd51a03, type: 3}
+  - {fileID: 2800000, guid: 38bcf917e483421419f85b948eb922d2, type: 3}
   outOfStrokes: 0
 --- !u!114 &2160786074104534086
 MonoBehaviour:

@@ -12,13 +12,13 @@ public class LevelSelect2 : MonoBehaviour
 
     public void W12Button()
     {
-        //SceneManager.LoadScene("Level02");
+        SceneManager.LoadScene("Level22");
     }
 
 
     public void W13Button()
     {
-        //SceneManager.LoadScene("Level03");
+        SceneManager.LoadScene("Level23");
     }
 
     public void backButton()
